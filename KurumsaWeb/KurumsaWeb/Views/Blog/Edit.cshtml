@@ -1,0 +1,64 @@
+﻿@model KurumsaWeb.Models.Model.Blog
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kategori Düzenle</h2>
+
+<div class="form">
+
+
+	@using (Html.BeginForm("Edit", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+		<!--  	"Edit", "blog", Edit kısmı action adı blog kısmı conroller ın adı       -->
+
+		@Html.AntiForgeryToken();
+		<!-- aynısını kontroolerde belirttik nedeni virüs olarak algılamasın diye
+		htmlbegin form ile yaparsan bunu belirtmek zorundasın		  -->
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Başlık <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="Baslik" name="Baslik" minlength="5" type="text" required value="@Model.Baslik" />
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="cemail" class="control-label col-lg-2">Kategori <span class="required">*</span></label>
+			<div class="col-lg-10">
+				@Html.DropDownList("KategoriId", null, new { @class = "form-control" })<!-- null,new {class="form-control" } burada dropdownlis için class tanımladık anlamadım deme sakın kendi projende bunu zaten yapmıştın-->
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="cemail" class="control-label col-lg-2">İçerik <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<textarea name="Icerik" class="ckeditor">@Model.Icerik</textarea>
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="curl" class="control-label col-lg-2">Önceki Resim</label>
+			<div class="col-lg-10">
+				<img src="@Model.ResimURL" width="100" height="100" />
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<label for="curl" class="control-label col-lg-2">Resim</label>
+			<div class="col-lg-10">
+				<input class="form-control " type="file" name="ResimURL" accept=".jpg,.png,jpeg" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<button class="btn btn-primary" type="submit">Ekle</button>
+				<button class="btn btn-default" type="button"><a href="/Blog/Index">İptal</a> </button>
+			</div>
+		</div>
+
+
+
+	}
+
+</div>
+
+

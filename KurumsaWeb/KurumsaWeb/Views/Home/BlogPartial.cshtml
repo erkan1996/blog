@@ -1,0 +1,15 @@
+﻿@model IEnumerable<KurumsaWeb.Models.Model.Blog>
+@{ Layout = null;}
+<div class="col-lg-3">
+	<div class="widget">
+		<h5 class="widgetheading">Son Blog Yazlıları</h5>
+		<ul class="link-list">
+			@foreach (var item in Model)
+			{
+				<li><a href="#">@item.Baslik</a></li><!--for içinde item ile çağır-->
+			}
+
+
+		</ul>
+	</div>
+</div>

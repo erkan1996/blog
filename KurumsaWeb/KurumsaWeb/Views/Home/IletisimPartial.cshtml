@@ -1,0 +1,29 @@
+﻿@model KurumsaWeb.Models.Model.Iletisim
+@{ Layout = null;}
+<div class="col-lg-3">
+	<div class="widget">
+		<h5 class="widgetheading">Kurumsal Web</h5>
+		<address>
+			<strong>@Model.Adres</strong><br>
+
+		</address>
+		<p>
+			<i class="icon-phone"></i>Tel: @Model.Telefon <br>
+			<i class="icon-phone"></i>WhatsApp:@Model.Whatsapp <br>
+			<i class="icon-envelope-alt"></i>Fax: @Model.Fax
+		</p>
+	</div>
+</div>
+
+<div class="col-lg-3">
+	<div class="widget">
+		<h5 class="widgetheading">Menü</h5>
+		<ul class="link-list">
+			<li><a href="/Home/Index">Ana Sayfa</a></li>
+			<li><a href="/Home/Hakkimizda">Hakkımızda</a></li>
+			<li><a href="/Home/Blog">Blog</a></li>
+			<li><a href="/Home/Hizmetlerimiz">Hizmetler</a></li>
+			<li><a href="/Home/Iletisim">İletişim</a></li>
+		</ul>
+	</div>
+</div>
